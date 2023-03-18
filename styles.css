@@ -1,0 +1,228 @@
+:root {
+    --branco-principal: #FFFFFF;
+    --cinza-secundario: #C0C0C0;
+    --botao-azul: #167BF7;
+    --cor-de-fundo: #00030C;
+    --fonte-principal: 'Inter';
+    --botao-efeito: #033879;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco-principal);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.principal {
+    background: url("Background.jpg");
+    background-repeat: no-repeat;
+    background-size: contain; /* vai preencher todo o espaço que o contém, que nesse caso é a section (principal) */
+    align-items: center; /* tambem serve quando é definido o grid, como o grid ( que está logo na classe abaixo )
+    é em formato de coluna, vai centralizar os elementos no meio da coluna */
+    text-align: center; /* essa propriedade centraliza nao só os textos mas também as imagens */
+}
+
+.container {
+    height: 100vh; /* altura total da tela do dispositivo */
+    display: grid; /* é também como um display de divisão, tipo o flex, por padrao ele divide
+    os elementos filhos na horizontal (um embaixo do outro, ocupando o tamanho todo (já que não foi
+    definido um tamaho para eles), como linhas ) */
+    grid-template-columns: 50% 50%; /* agora vai separar a  tela na horizontal, como duas colunas cada uma com
+    50% do tamanho da tela --- da pra ve isso melhor no inspecionar */
+
+}
+
+.container__caixa {
+    margin: 0 6em; /* topoEbaixo esquerdaEdireita */
+}
+.container__titulo {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.container__imagem {
+    margin: 1em 0 2em 0; /* pensar num relogio no sentido horario 12h-cima 3h- direita 6h-baixo 9h-esquerda */
+}
+
+.container__botao {
+    display: block; /* vai ficar embaixo do elemento anterior, mas vai ocupar -literalmente- o espaço inteiro pq ele é block */
+    text-decoration: none;
+    background-color: var(--botao-azul);
+    border-radius: 8px;
+    padding: 1em; /* em é uma medida relativa, 1em equivale ao tamanho da fonte, se a fonte tem 10px, entao 1em= 10px */
+    color: var(--branco-principal);
+    margin-bottom: 1em;
+}
+
+.container__botao:hover {
+    transform: scale(1.2);
+}
+
+.container__botao:active {
+    text-decoration: underline;
+}
+
+.botao_secundario {
+    background-color: transparent;
+    border: 1px solid var(--branco-principal);
+    
+}
+
+.container__aviso {
+    font-size: 12px;
+    color: var(--cinza-secundario);
+}
+
+.secundario {
+    align-items: center; /* lembrando que ta alinhando em relação ao grid colunas, que ta na classe container */
+    margin: 0 10em;
+}
+
+.secundario__imagem {
+    width: 80%;
+}
+
+.descricao__titulo {
+    font-weight: 700;
+    font-size: 48px;
+    color: #FFFFFF;
+    margin-bottom: 0.1em;
+}
+
+.descricao__texto {
+    color: var(--cinza-secundario); /* as caracteristicas já estao certinhas pois eztao seguindo oq colocamos no
+    body, a unica coisa que precisava mudar era a cor da fonte */
+}
+
+.secundario__botao {
+    display: inline-block; /* vai ser um elemento linha, ou seja se tiver outro elemento depois dele vai ficar 
+    ao seu lado e ele é do tamanho certinho dele mesmo, e também vai ser um elemento block, entao ele vai pra linha a baixo do elemento anterior */
+    margin-top: 1em;
+}
+
+.container__descricao {
+    padding: 2em;
+}
+
+.dispositivos {
+    text-align: center;
+    font-size: 32px;    
+}
+
+.dispositivos__titulo {
+    font-size: 48px;
+}
+
+.dispositivos__lista {
+    display: flex;
+    justify-content: center;
+    list-style-type: none; /* vai tirar os estilos que vem na lista, como o pontinho*/
+} 
+
+.rodape {
+    text-align: center;
+    font-family: var(--fonte-principal);
+    margin: 10em 0 6em 0;
+    
+}
+
+.rodape__lista {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin-top: 2em;
+}
+
+.lista__link {
+    margin: 0 0.5em;
+    font-size: 16px;
+    
+}
+
+.link {
+    text-decoration: none;
+    color: var(--branco-principal);
+}
+
+/* hoover e active sao exemplos de pseudo classes - interações na tela */
+
+.link:hover {
+    color: var(--botao-azul);
+    
+}
+
+.link:active {
+    text-decoration: underline;
+}
+
+
+.rodape__texto {
+    font-size: 14px;
+    color: var(--cinza-secundario);
+    margin: 2em 10em;
+}
+
+/* Algumas pseudo-classe: 
+:focus: é aplicada quando um elemento está em foco, pode ser pelo clique do mouse ou seleção pelo teclado. Um exemplo é quando os campos de escrita em formulários estão selecionados para o usuário escrever.
+
+:hover: detecta quando um usuário está com o mouse em cima do elemento, sem necessariamente estar clicando.
+
+:active: detecta quando o elemento está ativo, quando há uma interação, por exemplo: o link <a> está sendo clicado.
+
+:visited: detecta quando o link <a> já foi visitado, ou seja, se você já clicou anteriormente naquele link.
+
+:link: detecta quando é um link <a> que nunca foi clicado antes.
+*/
+
+@media screen and (max-width: 1200px) {
+    .container {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-color: var(--cor-de-fundo);
+        
+        
+    }
+
+    .principal {
+        padding-top: 10em;
+    }
+
+    .secundario {
+        margin: 10em 0;
+    }
+
+    .reverse {
+        flex-direction: column-reverse;
+    }
+
+    .descricao__titulo {
+        font-size: 30px;
+    }
+    
+    .dispositivos__titulo {
+        width: auto;
+        margin: 0 0.5em;
+    }
+
+    .dispositivos__lista, .rodape__lista {
+       display: flex;
+       flex-direction: column; 
+    }
+
+    
+    .rodape__texto {
+        width: 100%;
+        margin: 1em 0;
+    }
+
+
+}
