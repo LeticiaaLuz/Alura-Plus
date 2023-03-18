@@ -154,7 +154,7 @@ body {
 /* hoover e active sao exemplos de pseudo classes - interações na tela */
 
 .link:hover {
-    color: var(--botao-azul);
+    color: var(--botao-efeito);
     
 }
 
